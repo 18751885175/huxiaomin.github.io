@@ -1,0 +1,58 @@
+# Site settings
+title:
+SEOTitle: 胡晓敏的博客 | huxiaomin Blog
+header-img: http://onb688cva.bkt.clouddn.com/assets:img:home-bg.jpg
+email: 18751885175@163.com
+description: "关于交互与设计、UED与产品 | 胡晓敏 Web & Mobile Lover UED Engineer"
+keyword: "胡晓敏 , @晓敏 , 胡晓敏的博客 , huxiaomin Blog , 博客 , 个人网站 , 互联网 , 交互 , 设计"
+url: "http://huxiaomin.top"              # your host, for absolute URL
+baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
+
+# SNS settings
+RSS: true
+weibo_username:     huxiaomin
+zhihu_username:     huxiaomin
+github_username:    18751885175
+
+# Build settings
+# from 2016, 'pygments' is unsupported on GitHub Pages. Use 'rouge' for highlighting instead.
+highlighter: rouge
+permalink: pretty
+paginate: 10
+exclude: ["less","node_modules","Gruntfile.js","package.json","README.md","README.zh.md"]
+anchorjs: true                          # if you want to customize anchor. check out line:181 of `post.html`
+
+# Gems
+# from PR#40, to support local preview for Jekyll 3.0
+gems: [jekyll-paginate]
+
+# Markdown settings
+# replace redcarpet to kramdown,
+# although redcarpet can auto highlight code, the lack of header-id make the catalog impossible, so I switch to kramdown
+# document: http://jekyllrb.com/docs/configuration/#kramdown
+markdown: kramdown
+kramdown:
+  input: GFM                            # use Github Flavored Markdown !important
+
+# Sidebar settings
+sidebar: true     # whether or not using Sidebar.
+sidebar-about-description: "把时间当朋友"
+sidebar-avatar: http://onb688cva.bkt.clouddn.com/assets:img:avatar-limumu.jpg # use absolute URL, seeing it's used in both `/` and `/about/`
+
+# Progressive Web Apps
+chrome-tab-theme-color: "#000000"
+service-worker: true
+
+# Friends
+friends: [
+    {
+        title: "蜜蜂少女队",
+        href: "http://www.ladybees.com/"
+    },{
+        title: "推蜜",
+        href: "http://www.tweemee.com/"
+    },{
+        title: "蘑菇租房",
+        href: "http://www.mgzf.com/"
+    }
+]
