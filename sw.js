@@ -10,7 +10,7 @@ const PRECACHE = 'precache-v1';
 const RUNTIME = 'runtime';
 const HOSTNAME_WHITELIST = [
   self.location.hostname,
-  "limumu.me"
+  "https://18751885175.github.io/huxiaomin.github.io/"
 ]
 
 
