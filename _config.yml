@@ -37,7 +37,7 @@ kramdown:
 # Sidebar settings
 sidebar: true     # whether or not using Sidebar.
 sidebar-about-description: "把时间当朋友"
-sidebar-avatar: http://onb688cva.bkt.clouddn.com/assets:img:avatar-limumu.jpg # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-avatar: http://onb688cva.bkt.clouddn.com/assets:img:avatar-huxiaomin.jpg # use absolute URL, seeing it's used in both `/` and `/about/`
 
 # Progressive Web Apps
 chrome-tab-theme-color: "#000000"
@@ -46,13 +46,13 @@ service-worker: true
 # Friends
 friends: [
     {
+        title: "蘑菇租房",
+        href: "http://www.mgzf.com/"
+    },{
         title: "蜜蜂少女队",
         href: "http://www.ladybees.com/"
     },{
         title: "推蜜",
         href: "http://www.tweemee.com/"
-    },{
-        title: "蘑菇租房",
-        href: "http://www.mgzf.com/"
     }
 ]
