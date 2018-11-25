@@ -1,52 +1,821 @@
----
-layout: page
-description: "为了无法计算的价值 - 引用自《阿里云》"
----
+<!DOCTYPE HTML>
+<html>
 
-{% for post in paginator.posts %}
-<div class="post-preview">
-    <a href="{{ post.url | prepend: site.baseurl }}">
-        <h2 class="post-title">
-            {{ post.title }}
-        </h2>
-        {% if post.subtitle %}
-        <h3 class="post-subtitle">
-            {{ post.subtitle }}
-        </h3>
-        {% endif %}
-        <div class="post-content-preview">
-            {{ post.content | strip_html | truncate:200 }}
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=10;IE=9;IE=8;IE=7;IE=EDGE">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="alternate" media="handheld" href="#" />
+    <meta charset="utf-8">
+    <title>胡晓敏的简历</title>
+    <style>
+        * {
+            outline: none;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-size: 14px;
+            font-family: "Hiragino Sans GB", "Microsoft Yahei", "SimSun", Arial, "Helvetica Neue", Helvetica;
+            color: #333;
+            word-wrap: break-word;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        article,
+        aside,
+        details,
+        figcaption,
+        figure,
+        footer,
+        header,
+        hgroup,
+        main,
+        menu,
+        nav,
+        section,
+        summary {
+            display: block;
+        }
+
+        progress {
+            display: inline-block;
+            vertical-align: baseline;
+        }
+
+        a {
+            color: #555;
+            background-color: transparent;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #00b38a;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            margin: 10px 0;
+            font-weight: normal;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        p+p {
+            margin-top: 10px;
+        }
+
+        img {
+            border: 0;
+            vertical-align: top;
+            display: inline-block;
+        }
+
+        button,
+        input,
+        optgroup,
+        select,
+        textarea {
+            margin: 0;
+            padding: 0;
+            border: 1px solid #ededed;
+            border-radius: 0;
+            font-family: "Hiragino Sans GB", "Microsoft Yahei", "SimSun", Arial, "Helvetica Neue", Helvetica;
+        }
+
+        textarea {
+            overflow: auto;
+        }
+
+        label,
+        select,
+        button,
+        input[type="button"],
+        input[type="reset"],
+        input[type="submit"],
+        input[type="radio"],
+        input[type="checkbox"],
+        input[type="file"] {
+            cursor: pointer;
+        }
+
+        input[type=text],
+        input[type=password],
+        textarea {
+            font-family: "Microsoft Yahei", "SimSun", Arial, "Helvetica Neue", Helvetica;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        th,
+        td {
+            padding: 0;
+        }
+
+        strong {
+            font-weight: normal;
+        }
+
+        em,
+        i {
+            font-style: normal;
+        }
+
+        dl,
+        dt,
+        dd {
+            margin: 0;
+        }
+
+        ::selection {
+            color: #fff;
+            background-color: #00b38a;
+        }
+
+        ::-moz-selection {
+            color: #fff;
+            background-color: #00b38a;
+        }
+
+        ul,
+        ol {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #container {
+            width: 720px;
+            margin: 50px auto 54px auto;
+            border: 1px solid #e3ebe9;
+            border-radius: 5px;
+        }
+
+        .mr-template {
+            padding: 50px 50px 10px;
+        }
+
+        .mr-template .mr-template_title {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        .mr-template .mr-template_title span {
+            font-size: 18px;
+            color: #333333;
+            font-weight: 600;
+            position: relative;
+            margin-left: 10px;
+        }
+
+        .mr-template .mr-template_title span:before {
+            content: '';
+            display: block;
+            border-left: 3px solid #00B38A;
+            height: 16px;
+            width: 3px;
+            position: absolute;
+            left: -7px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .mr-template .mr_md_del {
+            display: none;
+        }
+
+        /***** 基本信息 ****/
+
+        .basic {
+            padding: 50px;
+            background: #FAFAFA;
+            border-radius: 5px 5px 0 0;
+            border-bottom: 1px solid #E3EBE9;
+            display: flex;
+        }
+
+        .basic .basic-photo {
+            height: 88px;
+            width: 88px;
+            display: inline-block;
+            position: relative;
+        }
+
+        .basic .basic-photo img {
+            height: 88px;
+            width: 88px;
+            position: absolute;
+            top: 0;
+            border-radius: 50%;
+        }
+
+        .basic .basic-photo .basic-photo_shadow {
+            display: none;
+        }
+
+        .basic .basic-photo:hover .basic-photo_shadow {
+            display: block;
+        }
+
+        .basic .basic-info {
+            position: relative;
+            width: 100%;
+            margin-left: 20px;
+            flex: 1;
+        }
+
+        .basic .basic-info .edit-btn {
+            position: absolute;
+            right: 0;
+            top: 4px;
+        }
+
+        .basic .basic-info .basic-name-area {
+            overflow: hidden;
+            height: 37px;
+            margin-bottom: 11px;
+        }
+
+        .basic .basic-info .basic-name {
+            float: left;
+            max-width: 250px;
+            font-size: 26px;
+            color: #333333;
+            font-weight: 600;
+            line-height: 37px;
+        }
+
+        .basic .basic-info .icon-sex {
+            width: 13px;
+            height: 13px;
+            float: left;
+            margin-top: 16px;
+            margin-left: 10px;
+            background: none;
+        }
+
+        .basic .basic-info .icon-sex.icon-sex__male {
+            background: url(https://www.lgstatic.com/common/image/pc/icon_man.png);
+        }
+
+        .basic .basic-info .icon-sex.icon-sex__female {
+            background: url(https://www.lgstatic.com/common/image/pc/icon_woman.png);
+        }
+
+        .basic .basic-info .basic-self {
+            margin-top: 20px;
+        }
+
+        .basic .basic-info p {
+            font-size: 14px;
+            color: #333333;
+            line-height: 20px;
+            margin-top: 6px;
+        }
+
+        .basic .basic-info i {
+            display: inline-block;
+            margin-right: 5px;
+            vertical-align: middle;
+        }
+
+        .basic .basic-info .basic-tel_icon {
+            width: 11px;
+            height: 14px;
+            margin-right: 2px;
+            background: url(https://www.lgstatic.com/common/image/pc/icon_phone.png);
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .basic .basic-info .basic-email_icon {
+            width: 14px;
+            height: 11px;
+            margin-right: 2px;
+            background: url(https://www.lgstatic.com/common/image/pc/icon_mail.png);
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .basic .basic-info .basic-tel {
+            margin-right: 20px;
+        }
+
+        .basic-tel span {
+            vertical-align: middle;
+        }
+
+        .basic-email span {
+            vertical-align: middle;
+        }
+
+        /***** 基本信息 end ****/
+
+        /***** 自我描述 ****/
+
+        .per .per-self_content {
+            position: relative;
+        }
+
+        .per .per-self_content .per-self_des {
+            margin-top: 13px;
+            font-size: 14px;
+            color: #666666;
+            line-height: 30px;
+        }
+
+        .per .per-self_content .per-self_des p {
+            margin-top: 0;
+        }
+
+        .per .per-self_content .per-self_des ol {
+            list-style-type: decimal;
+            -webkit-padding-start: 20px;
+        }
+        .per .per-self_content .per-self_des ul {
+            list-style: disc;
+            -webkit-padding-start: 20px;
+        }
+
+        /***** 自我描述 end ****/
+
+        /***** 工作经历 ****/
+
+        .work-exp .work-exp_list {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .work-exp .work-exp_list .exp-list_time {
+            font-size: 14px;
+            color: #666666;
+            position: absolute;
+            right: 0;
+        }
+
+        .work-exp .work-exp_list .exp-list_top {
+            display: flex;
+            align-items: center;
+        }
+
+        .work-exp .work-exp_list .exp-list_top img {
+            width: 46px;
+            height: 46px;
+            margin-right: 10px;
+        }
+
+        .work-exp .work-exp_list .exp-list_top .exp-list_right {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            height: 46px;
+            justify-content: space-between;
+        }
+
+        .work-exp .work-exp_list .exp-list_top .exp-list_right p,
+        .work-exp .work-exp_list .exp-list_top .exp-list_right strong {
+            font-size: 14px;
+            color: #333333;
+        }
+
+        .work-exp .work-exp_list .exp-list_top .exp-list_right strong {
+            font-weight: 600;
+        }
+
+        .work-exp .work-exp_list .tagboard {
+            margin: 20px 0 10px;
+        }
+
+        .work-exp .work-exp_list .exp-list_content {
+            font-size: 14px;
+            color: #666666;
+            line-height: 30px;
+        }
+
+        .tagboard .tagboard-tag {
+            font-size: 12px;
+            color: #999;
+            line-height: 18px;
+            padding: 3px 10px;
+            border: 1px solid #EAEDEC;
+            border-radius: 100px;
+            margin-right: 10px;
+        }
+
+        .work-exp .work-exp_list .exp-list_content ul, .work-exp .work-exp_list .exp-list_content_highlight ul {
+            list-style: disc;
+            -webkit-padding-start: 20px;
+        }
+
+        .work-exp .work-exp_list .exp-list_content ol, .work-exp .work-exp_list .exp-list_content_highlight ol {
+            list-style-type: decimal;
+            -webkit-padding-start: 20px;
+        }
+        /***** 工作经历 end ****/
+
+        /***** 项目经历 ****/
+
+        .pro-exp .pro-exp_list {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .pro-exp .pro-exp_list .exp-list_title {
+            font-size: 14px;
+            color: #333333;
+            font-weight: 600;
+            cursor: default;
+            display: flex;
+        }
+
+        .pro-exp .pro-exp_list .exp-list_title .exp-project_name, .pro-exp .pro-exp_list .exp-list_title .exp-project_company span {
+            max-width: 222px;
+            display: block;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .pro-exp .pro-exp_list .exp-list_title .exp-project_company {
+            display: flex;
+        }
+
+        .pro-exp .pro-exp_list .exp-list_time {
+            font-size: 14px;
+            color: #666666;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+
+        .pro-exp .pro-exp_list .exp-list_content,
+        .pro-exp .pro-exp_list .exp-project_des {
+            font-size: 14px;
+            color: #666666;
+            line-height: 30px;
+            margin-top: 10px;
+        }
+
+        .pro-exp .exp-list_title.active:hover {
+            color: #00B38A;
+            cursor: pointer;
+        }
+        .pro-exp .exp-project_url {
+            font-size: 14px;
+            color: #666;
+            line-height: 30px;
+        }
+        .pro-exp .pro-exp_list .exp-list_content ul, .pro-exp .pro-exp_list .exp-project_des ul {
+            list-style: disc;
+            -webkit-padding-start: 20px;
+        }
+
+        .pro-exp .pro-exp_list .exp-list_content ol,.pro-exp .pro-exp_list .exp-project_des ol{
+            list-style-type:decimal;-webkit-padding-start:20px
+        }
+
+        /***** 项目经历 end ****/
+
+        /***** 教育经历 ****/
+
+        .edu-exp .edu-exp_list {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .edu-exp .edu-exp_list .exp-list_time {
+            font-size: 14px;
+            color: #666666;
+            position: absolute;
+            right: 0;
+        }
+
+        .edu-exp .edu-exp_list .exp-list_top {
+            display: flex;
+            align-items: center;
+        }
+
+        .edu-exp .edu-exp_list .exp-list_top img {
+            width: 46px;
+            height: 46px;
+            margin-right: 10px;
+        }
+
+        .edu-exp .edu-exp_list .exp-list_top .exp-list_right {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            height: 46px;
+            justify-content: space-between;
+        }
+
+        .edu-exp .edu-exp_list .exp-list_top .exp-list_right p,
+        .edu-exp .edu-exp_list .exp-list_top .exp-list_right strong {
+            font-size: 14px;
+            color: #333333;
+        }
+
+        .edu-exp .edu-exp_list .exp-list_top .exp-list_right strong {
+            font-weight: 600;
+        }
+
+
+        /***** 教育经历 end ****/
+
+        /***** 社交主页 ****/
+
+        .social-page .social-page_list {
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .social-page .social-page_list .social-page_content {
+            display: flex;
+        }
+
+        .social-page .social-page_list .social-page_content img {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+            border-radius: 50%;
+        }
+
+        .social-page .social-page_list .social-page_content p {
+            font-size: 14px;
+            color: #666666;
+        }
+
+
+        /***** 社交主页 end ****/
+        /***** 图片作品 ****/
+
+        .portfolio-page .portfolio-list{
+            margin-bottom: 30px;
+            position: relative;
+        }
+        .portfolio-page .portfolio-list .portfolio-content{
+            font-size: 14px;
+            color: #666666;
+        }
+
+
+        /***** 图片作品 end ****/
+    </style>
+</head>
+
+<body>
+<div id="container">
+    <!-- 基本信息 -->
+    <div class="basic" id="baseInfo">
+        <div class="basic-photo">
+            <img class="mr_headimg user-avatar" id="userpic" src="https://www.lgstatic.com/common/image/pc/default_girl_headpic2.png" width="120" height="120" alt="头像"
+            />
         </div>
-    </a>
-    <p class="post-meta">
-        Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}
-    </p>
+        <div class="basic-info">
+            <div class="basic-name-area">
+                <p class="basic-name female">胡晓敏</p>
+                <i class="icon-sex icon-sex__female"></i>
+            </div>
+            <p>
+                <span class="basic-company">蘑菇租房</span>
+                <span> / </span>
+                <span class="basic-job">交互设计师</span>
+            </p>
+            <p class="basic-self">
+                <span class="basic-exp">3年工作经验 / </span>
+                <span class="basic-edu">本科
+                                         / 
+                                    </span>
+                <span class="basic-age">25岁</span>
+            </p>
+            <p>
+                            <span class="basic-tel">
+                                <i class="basic-tel_icon"></i>
+                                <span>18751885175</span>
+                            </span>
+                <span class="basic-email">
+                                <i class="basic-email_icon"></i>
+                                <span>18751885175@163.com</span>
+                            </span>
+            </p>
+        </div>
+    </div>
+    <!-- /基本信息 -->
+
+    <!-- 自我描述 -->
+    <div class="mr-template per" id="perAbility">
+        <div class="mr-template_title">
+            <span>自我描述</span>
+        </div>
+        <div class="tagboard integrative-tag">
+            <div class="integrative-tag_content">
+                <span class="tagboard-tag">个人能力</span>
+                <span class="tagboard-tag">自驱动</span>
+                <span class="tagboard-tag">抗压能力</span>
+                <span class="tagboard-tag">适应能力</span>
+                <span class="tagboard-tag">责任心</span>
+            </div>
+        </div>
+        <div class="per-self_content">
+            <div class="per-self_des">
+                <p>本科，南京艺术学院，工业设计，信息交互专业</p>
+                <p>三年移动互联网交互设计经验，熟悉产品开发流程，移动APP、H5、WEB交互设计经验及规范</p>
+                <p>熟悉UED设计流程，独立完成流程图、原型设计、交互文档，易用性测试</p>
+                <p>熟悉Axure、Sketch、Adobe系、墨刀、XMind</p>
+                <p>对设计充满热情，较快融入团队，有产品思维，较强自学能力与设计表达和沟通能力<br /></p>
+            </div>
+        </div>
+    </div>
+    <!-- /自我描述 -->
+
+
+    <!-- 工作经历 -->
+    <div class="mr-template work-exp" id="workExp">
+        <div class="mr-template_title">
+            <span>工作经历</span>
+        </div>
+        <ol class="work-exp_group">
+            <li class="work-exp_list">
+                <p class="exp-list_time">2016.11-2018.11</p>
+                <div class="exp-list_top">
+                    <img src="https://www.lgstatic.com/i/image3/M00/4C/6B/CgpOIFrfANqAcw1aAAAV7HmU6R8807.jpg" alt="公司Logo">
+                    <div class="exp-list_right">
+                        <strong class="exp-list_title">
+                            <span>蘑菇租房</span>
+                            ／
+                            <span>UED</span>
+                        </strong>
+                        <p>交互设计师</p>
+                    </div>
+                </div>
+                <div class="tagboard">
+                    <span class="tagboard-tag">交互</span>
+                    <span class="tagboard-tag">移动交互</span>
+                    <span class="tagboard-tag">用户体验</span>
+                </div>
+                <div class="exp-list_content">
+                    <p> 蘑菇租房于2014年在上海创立，是移动互联网时代“新租房”模式的开创者。为公寓商家提供公寓SaaS管理系统，除了管理房源还对接了流量、电子合同、金融、支付、大数据、智能硬件等多元化的产品服务。 2016年11月加入蘑菇租房UED部门负责金融部门的产品交互设计，涉及APP、H5、Web，工作内容包含需求分析、流程图或信息架构设计、产品原型设计、交互文档、测试评估（可用性测试）、gio数据分析。&nbsp; &nbsp;<br /></p>
+                    <p></p>
+                </div>
+            </li>
+            <li class="work-exp_list">
+                <p class="exp-list_time">2015.06-2016.11</p>
+                <div class="exp-list_top">
+                    <img src="https://www.lgstatic.com/images/logo_default.png" alt="公司Logo">
+                    <div class="exp-list_right">
+                        <strong class="exp-list_title">
+                            <span>蜜蜂少女队 LadyBees集团</span>
+                            ／
+                            <span>产品部</span>
+                        </strong>
+                        <p>产品助理</p>
+                    </div>
+                </div>
+                <div class="tagboard">
+                    <span class="tagboard-tag">交互设计</span>
+                    <span class="tagboard-tag">UED</span>
+                </div>
+                <div class="exp-list_content">
+                    <p> </p>
+                    <p>Ladybees蜜蜂少女队由国内资本大佬与主流明星合作致力打造国民励志女团，旗下涵盖手机社交软件APP，网站B2C商城，下线直营商店、全国各大城市公演剧场、浙江卫视黄金档选秀节目。 2015年毕业后加入LadyBees集团旗下上海四重唱网络科技有限公司负责手机APP及网站商城产品研发与设计工作 公司是初创公司，所有同事都充满创业活力，每个人身兼数职，成长与收获良多：&nbsp;</p>
+                    <p>1、用Photoshop给运营画宣传Banner&nbsp;</p>
+                    <p>2、用illustrator切图&nbsp;</p>
+                    <p>3、发布招聘简历预约面试</p>
+                    <p>4、根据手机市场热度购买测试手机</p>
+                    <p>5、用xmind整理产品逻辑&nbsp;</p>
+                    <p>6、帮助测试童鞋完成产品迭代测试任务并记录在Jira Bug系统&nbsp;<br /></p>
+                    <p>7、用Excel写测试用例并提交到Teambition&nbsp;</p>
+                    <p>8、用After Effects剪切、压缩视频&nbsp;</p>
+                    <p>9、周末帮助公司公演剧场检票、售票、维持现场秩序&nbsp;</p>
+                    <p>10、用Excel排项目进度表、Word写产品说明文档&nbsp;</p>
+                    <p>11、组织设计狮、程序猿、测试童鞋开晨会、项目进度会议确保项目不要delay&nbsp;</p>
+                    <p>12、独立负责官网商城产品从无到有的功能上线 http://www.ladybees.com/shop&nbsp;</p>
+                    <p>13、独立负责官网商城的后台运营管理功能界面&nbsp;</p>
+                    <p>14、用Axure设计官网商城UED http://www.ladybees.com/&nbsp;</p>
+                    <p>15、负责设计推蜜官网宣传首页 http://www.tweemee.com/&nbsp;</p>
+                    <p>16、设计手机APP【推蜜】HTML5相关宣传资讯&nbsp;</p>
+                    <p>17、协助前端攻城狮设计研发HTML小游戏&nbsp;</p>
+                    <p>18、独立负责产品、设计与优化迭代开发用户榜单&nbsp;</p>
+                    <p>19、独立负责设计与研发应援团功勋章商城&nbsp;</p>
+                    <p>20、独立负责应援团功勋章商城后台运营管理系统功能 非常幸运毕业就加入到公司，2015年到2017年辛苦与充实相伴、开心与激动相随，回望每个小功能、小项目、第一台电话机、第一次官网上线、第一次AppStore上线、第一次加急审核、第一个公演剧场、卖出第一个商品、售出第一张门票、第一次年会、第一次在办公室遇到谢霆锋、吴奇隆、阿沁老师、看着从海选招募到走上电视荧屏成为国民偶像的蜜蜂少女们，感谢所有的经历。 </p>
+                </div>
+            </li>
+        </ol>
+    </div>
+    <!-- /工作经历 -->
+
+    <!-- 项目经历 -->
+    <div class="mr-template pro-exp" id="proExp">
+        <div class="mr-template_title">
+            <span>项目经历</span>
+        </div>
+        <ol class="pro-exp_group">
+            <li class="pro-exp_list">
+                <p class="exp-list_title">
+                    <span class="exp-project_name">[蘑菇]信用租</span>
+                    <span class="exp-project_company">（<span>蘑菇租房</span>）</span>
+                </p>
+                <p class="exp-list_time">2017.07-2018.11</p>
+                <div class="exp-project_des"><p> 信用租为金融部的一款房租分期产品，分期与还款方式相比蘑菇月付更加灵活，与蚂蚁金服合作。信用租产品涉及的端口有APP、web、h5、微信：&nbsp;</p>
+                    <p>1.APP：支付环节、房源详情等页面&nbsp;</p>
+                    <p>2.web：蘑菇租房官网-房源详情页面、房东SaaS系统金融模块页面、&nbsp;</p>
+                    <p>3.对外的H5宣传页面、banner及宣传折页&nbsp;</p>
+                    <p>4.分期手续费85折活动&nbsp;<br /></p></div>
+                <div class="exp-list_content">
+                    <p> </p>1.了解与分析产品经理提出的需求，了解业务目地、业务目标&nbsp;2.分析用户需求，了解用户的特点和使用场景，分析用户在使用前、中、后和产品的接触点，设计引导用户使用的方式&nbsp;3.设计或优化流程图&nbsp;4.进行原型设计即界面设计，撰写交互文档移交开发与视觉&nbsp;5.进行测试评估&nbsp;6.通过gio进行数据分析
+                    <br />
+                </div>
+            </li>
+            <li class="pro-exp_list">
+                <p class="exp-list_title">
+                    <span class="exp-project_name">[蘑菇]蘑菇月付</span>
+                    <span class="exp-project_company">（<span>蘑菇租房</span>）</span>
+                </p>
+                <p class="exp-list_time">2016.11-2017.06</p>
+                <div class="exp-project_des"><p> 蘑菇月付为金融部的一款房租分期产品，蘑菇月付产品涉及的端口有APP、web、h5、支付宝及微信，上线时间一年多，接手时产品已上线，主要负责优化产品：&nbsp;</p>
+                    <p>1.APP：支付环节、房源详情等页面&nbsp;</p>
+                    <p>2.web：蘑菇租房官网-房源详情页面、房东SaaS系统金融模块页面、&nbsp;</p>
+                    <p>3.对外的H5宣传页面、banner及宣传折页 4.蘑菇月付免息活动&nbsp; &nbsp;&nbsp;<br /></p></div>
+                <div class="exp-list_content">
+                    <p> 1.首先了解与分析产品经理提出的需求，了解业务目地、业务目标&nbsp;</p>
+                    <p>2.了解用户的特点和使用场景，分析用户在使用前、中、后和产品的接触点，设计引导用户使用的方式&nbsp;</p>
+                    <p>3.设计或优化流程图&nbsp;</p>
+                    <p>4.进行原型设计即界面设计，撰写交互文档移交开发与视觉&nbsp;</p>
+                    <p>5.进行测试评估&nbsp;</p>
+                    <p>6.通过gio进行数据分析&nbsp; &nbsp;<br /></p>
+                </div>
+            </li>
+            <li class="pro-exp_list">
+                <p class="exp-list_title">
+                    <span class="exp-project_name">[推蜜] H5 应援团 功勋章 资讯站 收视女王蜂VR 排行榜</span>
+                    <span class="exp-project_company">（<span>蜜蜂少女队 LadyBees集团</span>）</span>
+                </p>
+                <p class="exp-list_time">2016.01-2016.11</p>
+                <div class="exp-project_des"><p> HTML5相关的小项目： 【粉丝应援团功勋章商城】：APP本身有用户积分体系、为了回报粉丝，粉丝可以用积分兑换商品增加粉丝的粘度和积极性 【视音资讯站】：运用内容社区运营的方法，展示蜜蜂少女的图文视频信息、秘蜜日程、官方公告 【收视女王蜂视频VR】:为配合浙江卫视《蜜蜂少女队》3月份晚间黄金档节目播出，需要与电视节目同步更新官方指定APP推蜜上的节目视频 【排行榜】：让蜜蜂少女在手机APP上直观看到自己的粉丝量与人气指数，并且鼓励粉丝用户支持自己喜欢的偶像，所以根据后台数据设计与研发人气榜、总榜、周榜、实力榜、应援团榜、推手实力榜&nbsp;<br /></p></div>
+                <div class="exp-list_content">
+                    <p> 基本工作流程是：&nbsp;</p>
+                    <p>1、调研竞品&nbsp;</p>
+                    <p>2、进行产品头脑风暴，将需求转化为产品原型UED&nbsp;</p>
+                    <p>3、产品原型UED反复迭代优化&nbsp;</p>
+                    <p>4、设计相关运营后台管理功能&nbsp;</p>
+                    <p>5、在进度会议上确认UI交付是否与UED匹配&nbsp;</p>
+                    <p>6、产品上线前配合测试功能验收&nbsp; &nbsp;</p>
+                </div>
+            </li>
+            <li class="pro-exp_list">
+                <p class="exp-list_title">
+                    <span class="exp-project_name">[推蜜] 蜜蜂少女队官网的迭代更新：单页官网至B2C商城</span>
+                    <span class="exp-project_company">（<span>蜜蜂少女队 LadyBees集团</span>）</span>
+                </p>
+                <p class="exp-list_time">2015.10-2016.10</p>
+                <div class="exp-project_des"><p> 推蜜TweeMee官网 至 LadyBees网站B2C商城&nbsp;</p>
+                    <p>1.前期：设计与研发第一个蜜蜂少女队推蜜APP单页官网&nbsp;</p>
+                    <p>2.后期：将蜜蜂少女队周边商品以及少女特属的商品放在B2C官网商城上给粉丝购买&nbsp; &nbsp;<br /></p></div>
+                <div class="exp-list_content">
+                    <p> </p>1、调研SNH48、1931、IdolShool、AKB48、韩国女子偶像天团等竞品的官网商城&nbsp;2、进行产品头脑风暴，将需求转化为产品原型UED&nbsp;3、产品原型UED反复迭代优化4、设计商城运营后台管理功能&nbsp;5、在进度会议上确认UI交付是否与UED匹配&nbsp;6、产品上线前配合测试功能验收
+                    <br />
+                </div>
+            </li>
+        </ol>
+    </div>
+    <!-- /项目经历 -->
+    <!-- 教育经历 -->
+    <div class="mr-template edu-exp" id="eduExp">
+        <div class="mr-template_title">
+            <span>教育经历</span>
+        </div>
+        <ol class="edu-exp_group">
+            <li class="edu-exp_list">
+                <p class="exp-list_time">2011-2015</p>
+                <div class="exp-list_top">
+                    <img src="https://www.lgstatic.com/images/schoolBadge/6142bb1eb6e94fbcbc7e13754cdee534.jpeg" alt="学校Logo">
+                    <div class="exp-list_right">
+                        <strong>南京艺术学院</strong>
+                        <p>本科 / 信息交互设计</p>
+                    </div>
+                </div>
+            </li>
+        </ol>
+    </div>
+    <!-- /教育经历 -->
+
+    <!-- 社交主页 -->
+    <!-- /社交主页 -->
+
+    <!-- 图片作品 -->
+    <!-- /图片作品 -->
 </div>
-<hr>
-{% endfor %}
+<script type="text/javascript" src="https://www.lagou.com/upload/oss.js"></script></body>
 
-<!-- Pager -->
-{% if paginator.total_pages > 1 %}
-<ul class="pager">
-    {% if paginator.previous_page %}
-    <li class="previous">
-        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Newer Posts</a>
-    </li>
-    {% endif %}
-    {% if paginator.next_page %}
-    <li class="next">
-        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older Posts &rarr;</a>
-    </li>
-    {% endif %}
-</ul>
-{% endif %}
-
-<script>
-    var _hmt = _hmt || [];
-    (function() {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?afa951d5d8d44c68af85fd0cd9843579";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-    })();
-</script>
+</html>
